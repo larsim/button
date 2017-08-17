@@ -40,9 +40,6 @@ def disco() :
 
   ser.timeout = 2.0
 
-  # TODO: Take over TV by HDMI-CEC
-  print("Starting TV")
-
   # RGB On (length 72)
   print("RGB On")
   ser.write("R1,1130,553,77,65,69,72,73,")
@@ -73,15 +70,8 @@ def disco() :
   print("Playing fireplace...")
   os.system("omxplayer -b -o hdmi /home/pi/Fireplace_Barry.avi &")
 
-  # TODO: Initiate disco ball
-  print("Starting disco ball")
-  #ser.write("DISCO!")
-
-  # TODO: Turn off lights
-  print("Turning off lights")
-
-  # Finish up after 2 minutes (120 seconds)
-  time.sleep(2)
+  # Finish up after one minute
+  time.sleep(60)
 
   # RGB Off (length 72)
   print("RGB Off")
@@ -117,8 +107,6 @@ def disco() :
   ser.write("65535,")
   print("Serial: " + ser.readline())
   time.sleep(2.0)
-
-  # TODO: Turn off TV
   
 ser.timeout = 60.0  
 
